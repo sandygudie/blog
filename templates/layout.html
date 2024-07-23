@@ -1,0 +1,86 @@
+{% load static tailwind_tags %} {% load icons %}
+
+<!-- Include your icon library. This example uses Font Awesome 6 through cdnjs.  -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+<!DOCTYPE html>
+<html>
+  <head>
+    {% tailwind_css %}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    {% block title %}
+    <title>Layout Page</title>
+    {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <header class="pt-20">
+ 
+        <h1 class="font-semibold text-5xl text-center w-full pb-14">
+          Connecting my worlds
+          <br />
+          through words.
+        </h1>
+  
+      <nav
+        class="flex font-thin items-center border-y-[1px] border-solid justify-center"
+      >
+        <a
+          class="p-3 border-r-[1px] border-solid w-full border-black text-center hover:text-primary"
+          href="/"
+          >Home</a
+        >
+        <a
+          class="p-3 border-r-[1px] border-solid w-full border-black text-center hover:text-primary"
+          href="/about"
+          >About</a
+        >
+        <a
+          class="p-3 border-r-[1px] border-solid w-full border-black text-center hover:text-primary"
+          href="/blogs"
+          >My Blog</a
+        >
+        <a
+          class="p-3 border-r-[1px] border-solid w-full border-black text-center hover:text-primary"
+          href="#contact"
+          >Contact</a
+        >
+        <div
+          class="flex items-center justify-center gap-x-4 w-full text-center"
+        >
+          <a class="hover:text-primary" href="https://x.com/sandygudie">
+            {% icon 'twitter' %}
+          </a>
+          <a class="hover:text-primary" href="">{% icon 'instagram' %}</a>
+          <a
+            class="hover:text-primary"
+            href="https://www.linkedin.com/in/goodnews-sandy"
+            >{% icon 'linkedin' %}</a
+          >
+        </div>
+      </nav>
+    </header>
+    <main class="px-8 pt-28">{% block content %} {% endblock %}</main>
+    <footer id="contact"
+      class="relative text-center bg-primary-light flex items-center mt-20 justify-center"
+    >
+      <img
+        src="media/images/footer-image.png"
+        alt="My image"
+        class="object-cover"
+      />
+      <p
+        class="text-3xl text-primary font-semibold absolute w-72 tracking-widest -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
+      >
+        NOT ALL CRAZY IDEAS ARE CRAZY AFTER ALL
+      </p>
+      <p class="absolute bottom-10 left-10 text-xs flex items-center">
+        <span class="pr-2 text-lg font-semibold">{% icon 'mail' %}</span>
+        goodnewssandy@gmail.com
+      </p>
+    </footer>
+  </body>
+</html>

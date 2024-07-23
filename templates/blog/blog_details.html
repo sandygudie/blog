@@ -1,0 +1,42 @@
+{% extends 'layout.html' %} {% load static %} {% block title %}
+<title>Blog Details</title>
+{% endblock %} {% block content %}
+<div class="px-8">
+  <div
+    class="relative p-10 mx-auto w-10/12 block border-solid border-gray border-[1px]"
+  >
+    <div>
+      <p class="font-thin text-sm tracking-wider">
+        {{post.created_date}} <span class="block"> {{post.read_time}}mins read.</span>
+      </p>
+      <h3 class="pt-8 pb-2 font-semibold text-4xl">{{post.title}}</h3>
+      <p class="font-extralight tracking-wider">{{post.subtitle}}</p>
+    </div>
+
+    <img src="media/{{post.image}}" alt="My image" class="object-cover py-14
+    w-full h-[30rem]"" />
+
+    <p class="font-light tracking-wider">{{post.post}}</p>
+  </div>
+
+  <div class="mt-24">
+    <h3 class="font-light tracking-[0.3em] text-xl">RECENT POSTS</h3>
+    <div class="mt-8 w-full flex items-center gap-x-8 justify-between">
+      {% for blog in recent_post %}
+      <a
+        href="{% url 'blog_details' blog.slug %}"
+        class="relative items-center justify-between hover:text-primary w-64 border-solid border-gray border-[1px]"
+      >
+        <img
+          src="media/{{blog.image}}"
+          alt=""
+          class="object-cover h-32 w-full"
+        />
+
+        <h3 class="p-6 font-medium">{{blog.title}}</h3>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

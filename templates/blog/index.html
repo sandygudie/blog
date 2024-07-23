@@ -1,0 +1,96 @@
+{% extends 'layout.html' %} {% load static %} {% load icons %} {% block title %}
+<title>Home</title>
+{% endblock %} {% block content %} {% for blog in featuredpost %}
+
+<a
+  href="{% url 'blog_details' blog.slug %}"
+  class="relative block border-solid w-3/5 mx-auto border-gray border-[1px]"
+>
+  <p
+    class="absolute -top-8 px-8 py-4 border-gray font-bold text-lg bg-white -left-[1px] border-solid border-[1px] tracking-[0.3em]"
+  >
+    FEATURED POST
+  </p>
+  <img
+    src="media/{{blog.image}}"
+    alt="My image"
+    class="object-cover w-full h-96"
+  />
+
+  <div class="p-8 hover:text-primary">
+    <p class="font-thin text-xs tracking-wider">{{blog.created_date}}</p>
+    <h3 class="pt-6 pb-2 font-bold text-3xl">{{blog.title}}</h3>
+    <p class="font-extralight tracking-wider">{{blog.subtitle}}</p>
+  </div>
+</a>
+{% endfor %}
+<div class="flex items-start border-y-[1px] border-gray border-solid mt-28">
+  <div class="w-3/4">
+    <h3 class="font-light tracking-[0.4em] text-xl pt-6">TRAIN OF THOUGHTS</h3>
+    <div class="mt-14 w-full">
+      {% for blog in bloglists %}
+      <a
+        href="{% url 'blog_details' blog.slug %}"
+        class="relative items-center justify-between flex hover:text-primary border-solid border-black border-[1px]"
+      >
+        <img
+          src="media/{{blog.image}}"
+          alt=""
+          class="object-cover h-72 w-2/4"
+        />
+        <div class="px-6 w-2/4 mx-4">
+          <p class="font-thin text-xs">
+            {{blog.created_date}} <span> {{blog.read_time}} mins</span>
+          </p>
+          <h3 class="py-4 font-bold text-lg">{{blog.title}}</h3>
+          <p class="font-light text-sm">{{blog.subtitle}}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- <hr class="border-black border-r-[1px] mx-20 border-solid h-screen" /> -->
+  <div class="w-1/4 py-10 px-8 bg-primary-light">
+    <h3 class="font-light tracking-[0.4em] text-xl pb-16">ABOUT ME</h3>
+    <a href="/" class="">
+      <img
+        src="media/images/proficpix.jpeg"
+        alt="My image"
+        class="object-contain"
+      />
+      <p class="tracking-wider font-extralight pt-10">
+        I'm that Girl.
+        <a class="block text-primary text-xs pt-2" href="/">Read More ></a>
+      </p>
+    </a>
+    <hr class="border-black border-r-[1px] border-solid w-full my-14" />
+    <div class="">
+      <h3 class="font-light tracking-[0.4em] text-xl text-center">SOCIALS</h3>
+      <div class="flex items-center gap-x-6 pt-4 justify-center">
+        <a class="hover:text-primary text-xl" href="https://x.com/sandygudie">
+          {% icon 'twitter' %}
+        </a>
+        <a class="hover:text-primary text-xl" href="">{% icon 'instagram' %}</a>
+        <a
+          class="hover:text-primary text-xl"
+          href="https://www.linkedin.com/in/goodnews-sandy"
+          >{% icon 'linkedin' %}</a
+        >
+      </div>
+    </div>
+    <hr class="border-black border-r-[1px] border-solid w-full my-14" />
+    <div class="">
+      <h3 class="font-light tracking-[0.4em] text-xl text-center mb-8">
+        READING
+      </h3>
+
+      <img
+        src="media/images/book.jpg"
+        alt="My image"
+        class="object-contain w-36 mx-auto"
+      />
+    </div>
+  </div>
+</div>
+
+{% endblock %}
