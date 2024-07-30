@@ -1,8 +1,0 @@
-option_settings:
-  aws:elasticbeanstalk:application:environment:
-    SECRET_KEY: django-insecure-&#ueu-_=f3en0+q&#h7942cj(=yf-58eeh=k80h59q208g#6$o
-    DB_NAME: ba6uhmbcfjkvwcyjkidt
-    DB_USER: ukichr585zh8ctvlkk8q
-    B_PASSWORD: CawmOAI1z9QpRXZ98VizoP6LYUW7xA
-    DB_HOST: ba6uhmbcfjkvwcyjkidt-postgresql.services.clever-cloud.com
-    DB_PORT: 50013   
